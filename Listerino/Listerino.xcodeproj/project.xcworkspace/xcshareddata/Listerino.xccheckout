@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FC1DF673-BC4C-4179-96F2-36B13A44DE3F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Listerino</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F9F71901-1502-4ECB-BD6E-B615D1B2ED65</key>
+		<string>https://github.com/danielws/listerino.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Listerino/Listerino.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F9F71901-1502-4ECB-BD6E-B615D1B2ED65</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/danielws/listerino.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F9F71901-1502-4ECB-BD6E-B615D1B2ED65</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F9F71901-1502-4ECB-BD6E-B615D1B2ED65</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Listerino</string>
+		</dict>
+	</array>
+</dict>
+</plist>
