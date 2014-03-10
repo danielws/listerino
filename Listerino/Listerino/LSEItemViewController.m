@@ -47,12 +47,25 @@
     locationIconView.frame = CGRectMake(8, 8, locationView.frame.size.height-16, locationView.frame.size.height-16);
     [locationView addSubview:locationIconView];
     
-    UITextView *locationText = [[UITextView alloc] initWithFrame:CGRectMake(8, 8, locationView.frame.size.height-16, 100)];
+    UIImage *locationChevron = [UIImage imageNamed:@".."];
+    UIImageView *locationChevronView = [[UIImageView alloc] initWithImage:locationChevron];
+    locationChevronView.backgroundColor = [UIColor grayColor];
+    locationChevronView.frame = CGRectMake(0, 0, locationView.frame.size.height-16, locationView.frame.size.height-16);
+//    locationChevronView.frame.origin = CGPointMake(locationView.frame.size.width-locationView.frame.size.height-16+8, 8);
+    [locationView addSubview:locationChevronView];
+    
+    UILabel *locationText = [[UILabel alloc] initWithFrame:CGRectMake(locationIconView.frame.origin.x+locationIconView.frame.size.width+8, 8, 200, locationView.frame.size.height-16)];
     locationText.backgroundColor = [UIColor clearColor];
-    //    locationText.attributedText = @"Loaction!";
+    locationText.text = @"Location!";
     locationText.textColor = [UIColor blackColor];
-    locationText.editable = NO;
     [locationView addSubview:locationText];
+    
+    UITextField *note = [[UITextField alloc] init];
+    note.placeholder = @"Write a note...";
+    note.frame = CGRectMake(0, locationView.frame.origin.y, self.view.frame.size.width, 400);
+    note.textAlignment = UITextAlignmentLeft;
+    [self.view addSubview:note];
+    
     
 }
 
