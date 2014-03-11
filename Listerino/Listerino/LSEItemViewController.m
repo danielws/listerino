@@ -51,7 +51,7 @@
     UIImageView *locationChevronView = [[UIImageView alloc] initWithImage:locationChevron];
     locationChevronView.backgroundColor = [UIColor grayColor];
     locationChevronView.frame = CGRectMake(0, 0, locationView.frame.size.height-16, locationView.frame.size.height-16);
-//    locationChevronView.frame.origin = CGPointMake(locationView.frame.size.width-locationView.frame.size.height-16+8, 8);
+    locationChevronView.frame = CGRectMake(locationView.frame.size.width-locationChevronView.frame.size.width-8, 8, locationChevronView.frame.size.width, locationChevronView.frame.size.height);
     [locationView addSubview:locationChevronView];
     
     UILabel *locationText = [[UILabel alloc] initWithFrame:CGRectMake(locationIconView.frame.origin.x+locationIconView.frame.size.width+8, 8, 200, locationView.frame.size.height-16)];
@@ -60,10 +60,13 @@
     locationText.textColor = [UIColor blackColor];
     [locationView addSubview:locationText];
     
-    UITextField *note = [[UITextField alloc] init];
-    note.placeholder = @"Write a note...";
-    note.frame = CGRectMake(0, locationView.frame.origin.y, self.view.frame.size.width, 400);
-    note.textAlignment = UITextAlignmentLeft;
+    UILabel *note = [[UILabel alloc] init];
+    note.text = @"This is a very long placeholder I hope it wraps to 2 lines!a asd asd asd asdlkakj";
+    note.frame = CGRectMake(0, locationView.frame.origin.y+locationView.frame.size.height+16, self.view.frame.size.width, self.view.frame.size.height);
+    [note setNumberOfLines:0];
+    [note sizeToFit];
+    note.frame = CGRectMake(note.frame.origin.x+16, note.frame.origin.y, note.frame.size.width-32, note.frame.size.height);
+//    note.textAlignment = UITextAlignmentLeft;
     [self.view addSubview:note];
     
     
