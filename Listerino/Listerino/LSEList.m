@@ -72,8 +72,8 @@
         @"items" : @[
                 @{@"name" : @"In and out burger",
                   @"photo" : @"In-N-Out-Burger_Sign_San_Francisco@2x.jpg",
-                  @"location" : @"Mission st",
-                  @"notes" : @"The fries are too crispy"
+                  @"location" : @"333 Jefferson St San Francisco, CA",
+                  @"notes" : @"There's something about In-N-Out that makes me crave it whenever I need a late night snack/meal and now that I think about it, it's my go to place for that situation! In-N-Outs menu is very simple offering a hamburger, cheeseburger, or a double cheeseburger. It's quite cheap too but the quality is very very good and I prefer eating these burgers than restaurant burgers by far. The nice toasted bun and tasty ingredients are to crave for! Despite the misleading limited menu, there's actually a lot of customizations here you can do and my favorite is:"
                   },
                 
                 @{@"name" : @"Arbys",

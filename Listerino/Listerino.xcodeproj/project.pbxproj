@@ -12,6 +12,8 @@
 		4AA74EE918DA313B00B5D252 /* LSEAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA74EE818DA313B00B5D252 /* LSEAddViewController.m */; };
 		4AA74EEB18DA324400B5D252 /* doneButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA74EEA18DA324400B5D252 /* doneButton@2x.png */; };
 		4AA74EED18DA4A9300B5D252 /* In-N-Out-Burger_Sign_San_Francisco@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AA74EEC18DA4A9300B5D252 /* In-N-Out-Burger_Sign_San_Francisco@2x.jpg */; };
+		4AA74EEF18DA552F00B5D252 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA74EEE18DA552F00B5D252 /* location@2x.png */; };
+		4AA74EF118DA5A1100B5D252 /* chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA74EF018DA5A1100B5D252 /* chevron@2x.png */; };
 		700E4D2318CE2C5E00F06518 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700E4D2218CE2C5E00F06518 /* Foundation.framework */; };
 		700E4D2518CE2C5E00F06518 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700E4D2418CE2C5E00F06518 /* CoreGraphics.framework */; };
 		700E4D2718CE2C5E00F06518 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700E4D2618CE2C5E00F06518 /* UIKit.framework */; };
@@ -52,6 +54,8 @@
 		4AA74EE818DA313B00B5D252 /* LSEAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEAddViewController.m; sourceTree = "<group>"; };
 		4AA74EEA18DA324400B5D252 /* doneButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "doneButton@2x.png"; sourceTree = "<group>"; };
 		4AA74EEC18DA4A9300B5D252 /* In-N-Out-Burger_Sign_San_Francisco@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "In-N-Out-Burger_Sign_San_Francisco@2x.jpg"; sourceTree = "<group>"; };
+		4AA74EEE18DA552F00B5D252 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		4AA74EF018DA5A1100B5D252 /* chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron@2x.png"; sourceTree = "<group>"; };
 		700E4D1F18CE2C5E00F06518 /* Listerino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listerino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700E4D2218CE2C5E00F06518 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		700E4D2418CE2C5E00F06518 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,6 +117,8 @@
 		4AA74EE418DA2DAD00B5D252 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4AA74EF018DA5A1100B5D252 /* chevron@2x.png */,
+				4AA74EEE18DA552F00B5D252 /* location@2x.png */,
 				4AA74EEC18DA4A9300B5D252 /* In-N-Out-Burger_Sign_San_Francisco@2x.jpg */,
 				4AA74EEA18DA324400B5D252 /* doneButton@2x.png */,
 				4AA74EE518DA2DBE00B5D252 /* addButton@2x.png */,
@@ -311,11 +317,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA74EEF18DA552F00B5D252 /* location@2x.png in Resources */,
 				4AA74EEB18DA324400B5D252 /* doneButton@2x.png in Resources */,
 				4AA74EE618DA2DBE00B5D252 /* addButton@2x.png in Resources */,
 				4AA74EED18DA4A9300B5D252 /* In-N-Out-Burger_Sign_San_Francisco@2x.jpg in Resources */,
 				700E4D2D18CE2C5E00F06518 /* InfoPlist.strings in Resources */,
 				700E4D3518CE2C5E00F06518 /* Images.xcassets in Resources */,
+				4AA74EF118DA5A1100B5D252 /* chevron@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
