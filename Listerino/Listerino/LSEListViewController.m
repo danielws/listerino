@@ -49,7 +49,7 @@
     addButton.backgroundColor = [UIColor redColor];
     [addButton addTarget:self action:@selector(onAddButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:addButton];
+//    [self.view addSubview:addButton];
     
 }
 
@@ -103,13 +103,13 @@
     
 }
 
-- (void)onAddButtonTap:(id)sender {
-    NSLog(@"add Item");
-    LSEItem *newItem = [[LSEItem alloc]init];
-    newItem.itemName = @"taco Bell";
-    [self.items insertObject:newItem atIndex:0];
-    [self.listTableView reloadData];
-    
-}
+//- (void)onAddButtonTap:(id)sender {
+//    NSLog(@"add Item");
+//    LSEItem *newItem = [[LSEItem alloc]init];
+//    newItem.itemName = @"taco Bell";
+//    [self.items insertObject:newItem atIndex:0];
+//    [self.listTableView reloadData];
+//    
+//}
 
 @end

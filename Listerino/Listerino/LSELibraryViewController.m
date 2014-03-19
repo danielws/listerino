@@ -46,7 +46,7 @@
     [addListButton addTarget:self action:@selector(onAddButtonTap:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.view addSubview:self.libraryTableView];
-    [self.view addSubview:addListButton];
+//    [self.view addSubview:addListButton];
 
     self.title = @"Listerino";
 

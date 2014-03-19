@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AA74EE318DA246400B5D252 /* LSEButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA74EE218DA246400B5D252 /* LSEButtonViewController.m */; };
+		4AA74EE618DA2DBE00B5D252 /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA74EE518DA2DBE00B5D252 /* addButton@2x.png */; };
 		700E4D2318CE2C5E00F06518 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700E4D2218CE2C5E00F06518 /* Foundation.framework */; };
 		700E4D2518CE2C5E00F06518 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700E4D2418CE2C5E00F06518 /* CoreGraphics.framework */; };
 		700E4D2718CE2C5E00F06518 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700E4D2618CE2C5E00F06518 /* UIKit.framework */; };
@@ -40,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AA74EE118DA246400B5D252 /* LSEButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEButtonViewController.h; sourceTree = "<group>"; };
+		4AA74EE218DA246400B5D252 /* LSEButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEButtonViewController.m; sourceTree = "<group>"; };
+		4AA74EE518DA2DBE00B5D252 /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
 		700E4D1F18CE2C5E00F06518 /* Listerino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listerino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700E4D2218CE2C5E00F06518 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		700E4D2418CE2C5E00F06518 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,9 +103,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AA74EE418DA2DAD00B5D252 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4AA74EE518DA2DBE00B5D252 /* addButton@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		700E4D1618CE2C5E00F06518 = {
 			isa = PBXGroup;
 			children = (
+				4AA74EE418DA2DAD00B5D252 /* Images */,
 				700E4D2818CE2C5E00F06518 /* Listerino */,
 				700E4D4118CE2C5E00F06518 /* ListerinoTests */,
 				700E4D2118CE2C5E00F06518 /* Frameworks */,
@@ -133,6 +147,8 @@
 			children = (
 				700E4D3118CE2C5E00F06518 /* LSEAppDelegate.h */,
 				700E4D3218CE2C5E00F06518 /* LSEAppDelegate.m */,
+				4AA74EE118DA246400B5D252 /* LSEButtonViewController.h */,
+				4AA74EE218DA246400B5D252 /* LSEButtonViewController.m */,
 				700E4D5418CE2D4600F06518 /* Library View */,
 				700E4D5818CE372800F06518 /* List View */,
 				700E4D5F18CE41B700F06518 /* Item View */,
@@ -284,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA74EE618DA2DBE00B5D252 /* addButton@2x.png in Resources */,
 				700E4D2D18CE2C5E00F06518 /* InfoPlist.strings in Resources */,
 				700E4D3518CE2C5E00F06518 /* Images.xcassets in Resources */,
 			);
@@ -310,6 +327,7 @@
 				700E4D5718CE36FA00F06518 /* LSEListViewController.m in Sources */,
 				7035C3E818D95DCD00BB9C32 /* LSEEditableTableViewCell.m in Sources */,
 				7088EC9918D55A3B00F5E01C /* LSELibraryCell.m in Sources */,
+				4AA74EE318DA246400B5D252 /* LSEButtonViewController.m in Sources */,
 				700E4D3318CE2C5E00F06518 /* LSEAppDelegate.m in Sources */,
 				700E4D6518CE455B00F06518 /* LSEList.m in Sources */,
 				700E4D5318CE2D3B00F06518 /* LSELibraryViewController.m in Sources */,

@@ -8,15 +8,20 @@
 
 #import "LSEAppDelegate.h"
 #import "LSELibraryViewController.h"
+#import "LSEButtonViewController.h"
 
 @implementation LSEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    LSELibraryViewController*libraryViewController = [[LSELibraryViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:libraryViewController];
-    [self.window setRootViewController:navigationController];
+//    LSELibraryViewController*libraryViewController = [[LSELibraryViewController alloc] init];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:libraryViewController];
+//    [self.window setRootViewController:navigationController];
+
+    LSEButtonViewController *fakeRoot = [[LSEButtonViewController alloc] init];
+    
+    self.window.rootViewController = fakeRoot;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
