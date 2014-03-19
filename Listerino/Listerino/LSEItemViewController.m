@@ -40,7 +40,7 @@
     
     // Inits -------------------------------------------------------
     // Note Image
-    UIImage *Image = [UIImage imageNamed:@"..."];
+    UIImage *Image = [UIImage imageNamed:self.itemInfo.photo];
     self.imageView = [[UIImageView alloc] initWithImage:Image];
     [self.view addSubview:self.imageView];
     

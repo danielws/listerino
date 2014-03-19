@@ -71,7 +71,7 @@
       @{@"name" : @"Restaurants",
         @"items" : @[
                 @{@"name" : @"In and out burger",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"In-N-Out-Burger_Sign_San_Francisco@2x.jpg",
                   @"location" : @"Mission st",
                   @"notes" : @"The fries are too crispy"
                   },
