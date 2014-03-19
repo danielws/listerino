@@ -10,6 +10,7 @@
 
 // Import The "real" root
 #import "LSELibraryViewController.h"
+#import "LSEAddViewController.h"
 
 @interface LSEButtonViewController ()
 @property (nonatomic, strong) UIButton *addButton;
@@ -78,8 +79,16 @@
 
 - (void)onAddButtonUp:(id)sender {
     NSLog(@"Button Up");
-    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
         self.addButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
+        UIViewController *vc = [[LSEAddViewController alloc] init];
+        vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical; // Rises from below
+        
+        // vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve; // Fade
+        // vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal; // Flip
+        // vc.modalTransitionStyle = UIModalTransitionStylePartialCurl; // Curl
+        
+        [self presentViewController:vc animated:YES completion:nil];
     } completion:^(BOOL finished) {
         //
     }];
@@ -87,7 +96,7 @@
 
 - (void)onAddButtonDown:(id)sender {
     NSLog(@"Button Down");
-    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
         self.addButton.frame = CGRectMake(self.addButton.frame.origin.x+10, self.addButton.frame.origin.y+10
                                           , self.addButton.frame.size.width-20, self.addButton.frame.size.height-20);
     } completion:^(BOOL finished) {
