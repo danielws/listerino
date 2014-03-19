@@ -10,6 +10,13 @@
 
 @interface LSEItemViewController ()
 
+@property (nonatomic,strong) UIImageView *imageView;
+@property (nonatomic,strong) UIView *locationView;
+@property (nonatomic, strong) UIImageView *locationIconView;
+@property (nonatomic,strong) UITextView *locationText;
+@property (nonatomic, strong) UIView *noteView;
+@property (nonatomic,strong) UITextView *noteText;
+
 @end
 
 @implementation LSEItemViewController
@@ -26,33 +33,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.title = @"List Item";
+    
+    self.title = self.itemInfo.itemName;
+
     self.view.backgroundColor = [UIColor whiteColor];
     
-    //Note Image
-    UIImage *noteImage = [UIImage imageNamed:@"..."];
-    UIImageView *noteImageView = [[UIImageView alloc] initWithImage:noteImage];
-    noteImageView.backgroundColor = [UIColor greenColor];
-    noteImageView.frame = CGRectMake(0, 62, 320, 240);
-    [self.view addSubview:noteImageView];
+    // Inits -------------------------------------------------------
+    // Note Image
+    UIImage *Image = [UIImage imageNamed:@"..."];
+    self.imageView = [[UIImageView alloc] initWithImage:Image];
+    [self.view addSubview:self.imageView];
     
-    //Location
-    UIView *locationView = [[UIView alloc] initWithFrame:CGRectMake(0, noteImageView.frame.origin.y+noteImageView.frame.size.height+0, 320, 50)];
-    locationView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:locationView];
+    // Location Label
+    self.locationView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.locationView];
     
+    // Location Icon
     UIImage *locationIcon = [UIImage imageNamed:@".."];
-    UIImageView *locationIconView = [[UIImageView alloc] initWithImage:locationIcon];
-    locationIconView.backgroundColor = [UIColor grayColor];
-    locationIconView.frame = CGRectMake(8, 8, locationView.frame.size.height-16, locationView.frame.size.height-16);
-    [locationView addSubview:locationIconView];
+    self.locationIconView = [[UIImageView alloc] initWithImage:locationIcon];
+    [self.locationView addSubview:self.locationIconView];
     
-    UITextView *locationText = [[UITextView alloc] initWithFrame:CGRectMake(8, 8, locationView.frame.size.height-16, 100)];
-    locationText.backgroundColor = [UIColor clearColor];
-    //    locationText.attributedText = @"Loaction!";
-    locationText.textColor = [UIColor blackColor];
-    locationText.editable = NO;
-    [locationView addSubview:locationText];
+ 
+    // Location Text
+    self.locationText = [[UITextView alloc] initWithFrame:CGRectZero];
+    self.locationText.editable = NO;
+    self.locationText.text = self.itemInfo.itemLocation;
+    [self.locationView addSubview:self.locationText];
+    
+    // Note Text
+    self.noteView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.noteView addSubview:self.noteText];
+    [self.view addSubview:self.noteView];
+    
+    self.noteText = [[UITextView alloc] initWithFrame:CGRectZero];
+    self.noteText.text = self.itemInfo.itemNotes;
+    [self.noteView addSubview:self.noteText];
     
 }
 
@@ -60,6 +75,40 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - View layout
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    // Image view layout
+    _imageView.frame = CGRectMake(0, 62, 320, 240);
+    _imageView.backgroundColor = [UIColor greenColor];
+    
+    // Location view layout
+    _locationView.frame = CGRectMake(0, CGRectGetMaxY(_imageView.frame), 320, 50);
+    _locationView.backgroundColor = [UIColor redColor];
+    
+    _locationIconView.backgroundColor = [UIColor grayColor];
+    _locationIconView.frame = CGRectMake(8, 8, _locationView.frame.size.height - 16, _locationView.frame.size.height-16);
+    _locationIconView.backgroundColor = [UIColor blueColor];
+    
+    _locationText.frame = CGRectMake(8, 8, CGRectGetWidth(_locationView.frame) - 16, CGRectGetHeight(_locationView.frame)- 16);
+    _locationText.backgroundColor = [UIColor whiteColor];
+    _locationText.textColor = [UIColor blackColor];
+
+    // Note view layout
+    _noteView.frame = CGRectMake(0, CGRectGetMaxY(_locationView.frame), 320, 500);
+    _noteView.backgroundColor = [UIColor yellowColor];
+    
+    _noteText.frame = CGRectMake(5, 5, CGRectGetWidth(_noteView.frame) - 10, 100);
+    _noteText.backgroundColor = [UIColor brownColor];
+    _noteText.textColor = [UIColor blackColor];
+    
+
+
+
 }
 
 @end

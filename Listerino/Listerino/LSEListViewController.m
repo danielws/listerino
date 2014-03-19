@@ -8,9 +8,16 @@
 
 #import "LSEListViewController.h"
 #import "LSEItemViewController.h"
+#import "LSEListCell.h"
+#import "LSEItemViewController.h"
+#import "LSEItem.h"
 
 @interface LSEListViewController ()
 @property (nonatomic, strong) UITableView *listTableView;
+@property (nonatomic, strong) NSMutableArray *items;
+
+- (void)onAddButtonTap:(id)sender;
+
 @end
 
 @implementation LSEListViewController
@@ -30,11 +37,20 @@
     self.listTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.listTableView.dataSource = self;
     self.listTableView.delegate = self;
+    self.items = self.listInfo.listItems;
+    
     [self.view addSubview:self.listTableView];
     
-    self.title = @"List";
+    self.title = self.listInfo.listName;
 
 	self.view.backgroundColor = [UIColor yellowColor];
+    
+    UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 60) / 2, CGRectGetMaxY(self.view.frame) - 60, 50, 50)];
+    addButton.backgroundColor = [UIColor redColor];
+    [addButton addTarget:self action:@selector(onAddButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:addButton];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,27 +66,49 @@
 
 #pragma mark - TableView Methods
 
-- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.listInfo.listItems.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    cell.textLabel.text = [NSString stringWithFormat:@"This is row %d", indexPath.row];
+    NSString *identifier = @"LSEListCell";
+
+    LSEListCell *listCell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
-    return cell;
+    LSEItem *listItem = self.listInfo.listItems[indexPath.row];
+    
+    if (!listCell) {
+        listCell = [[LSEListCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                            reuseIdentifier:identifier];
+    }
+    
+    listCell.textLabel.text = listItem.itemName;
+
+    return listCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     LSEItemViewController *itemViewController = [[LSEItemViewController alloc]init];
-    //    itemViewController.listInfo = [self.notifs objectAtIndex:indexPath.row];
+    itemViewController.itemInfo = [self.items objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:itemViewController animated:YES];
 }
 
+#pragma mar - Button Methods
+
 - (void)onMessagePress:(id)sender {
+    
+}
+
+- (void)onAddButtonTap:(id)sender {
+    NSLog(@"add Item");
+    LSEItem *newItem = [[LSEItem alloc]init];
+    newItem.itemName = @"taco Bell";
+    [self.items insertObject:newItem atIndex:0];
+    [self.listTableView reloadData];
     
 }
 

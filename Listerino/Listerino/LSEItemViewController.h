@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LSEItem.h"
 
 @interface LSEItemViewController : UIViewController
+
+@property (nonatomic, strong) LSEItem *itemInfo;
 
 @end

@@ -21,11 +21,12 @@
 		700E4D4818CE2C5E00F06518 /* ListerinoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D4718CE2C5E00F06518 /* ListerinoTests.m */; };
 		700E4D5318CE2D3B00F06518 /* LSELibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D5218CE2D3B00F06518 /* LSELibraryViewController.m */; };
 		700E4D5718CE36FA00F06518 /* LSEListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D5618CE36FA00F06518 /* LSEListViewController.m */; };
-		700E4D5B18CE3CAB00F06518 /* LSELibraryCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D5A18CE3CAB00F06518 /* LSELibraryCellView.m */; };
 		700E4D5E18CE41B200F06518 /* LSEItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D5D18CE41B200F06518 /* LSEItemViewController.m */; };
-		700E4D6218CE44F800F06518 /* LSEListViewCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D6118CE44F800F06518 /* LSEListViewCellView.m */; };
 		700E4D6518CE455B00F06518 /* LSEList.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D6418CE455B00F06518 /* LSEList.m */; };
 		700E4D6818CE457700F06518 /* LSEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 700E4D6718CE457700F06518 /* LSEItem.m */; };
+		7035C3E818D95DCD00BB9C32 /* LSEEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7035C3E718D95DCD00BB9C32 /* LSEEditableTableViewCell.m */; };
+		7088EC9918D55A3B00F5E01C /* LSELibraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7088EC9818D55A3B00F5E01C /* LSELibraryCell.m */; };
+		7088EC9C18D55A5600F5E01C /* LSEListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7088EC9B18D55A5600F5E01C /* LSEListCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,16 +60,18 @@
 		700E4D5218CE2D3B00F06518 /* LSELibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSELibraryViewController.m; sourceTree = "<group>"; };
 		700E4D5518CE36FA00F06518 /* LSEListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEListViewController.h; sourceTree = "<group>"; };
 		700E4D5618CE36FA00F06518 /* LSEListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEListViewController.m; sourceTree = "<group>"; };
-		700E4D5918CE3CAB00F06518 /* LSELibraryCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSELibraryCellView.h; sourceTree = "<group>"; };
-		700E4D5A18CE3CAB00F06518 /* LSELibraryCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSELibraryCellView.m; sourceTree = "<group>"; };
 		700E4D5C18CE41B200F06518 /* LSEItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEItemViewController.h; sourceTree = "<group>"; };
 		700E4D5D18CE41B200F06518 /* LSEItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEItemViewController.m; sourceTree = "<group>"; };
-		700E4D6018CE44F800F06518 /* LSEListViewCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEListViewCellView.h; sourceTree = "<group>"; };
-		700E4D6118CE44F800F06518 /* LSEListViewCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEListViewCellView.m; sourceTree = "<group>"; };
 		700E4D6318CE455B00F06518 /* LSEList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEList.h; sourceTree = "<group>"; };
 		700E4D6418CE455B00F06518 /* LSEList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEList.m; sourceTree = "<group>"; };
 		700E4D6618CE457700F06518 /* LSEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEItem.h; sourceTree = "<group>"; };
 		700E4D6718CE457700F06518 /* LSEItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEItem.m; sourceTree = "<group>"; };
+		7035C3E618D95DCD00BB9C32 /* LSEEditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEEditableTableViewCell.h; sourceTree = "<group>"; };
+		7035C3E718D95DCD00BB9C32 /* LSEEditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEEditableTableViewCell.m; sourceTree = "<group>"; };
+		7088EC9718D55A3B00F5E01C /* LSELibraryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSELibraryCell.h; sourceTree = "<group>"; };
+		7088EC9818D55A3B00F5E01C /* LSELibraryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSELibraryCell.m; sourceTree = "<group>"; };
+		7088EC9A18D55A5600F5E01C /* LSEListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEListCell.h; sourceTree = "<group>"; };
+		7088EC9B18D55A5600F5E01C /* LSEListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSEListCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +176,10 @@
 			children = (
 				700E4D5118CE2D3B00F06518 /* LSELibraryViewController.h */,
 				700E4D5218CE2D3B00F06518 /* LSELibraryViewController.m */,
-				700E4D5918CE3CAB00F06518 /* LSELibraryCellView.h */,
-				700E4D5A18CE3CAB00F06518 /* LSELibraryCellView.m */,
+				7088EC9718D55A3B00F5E01C /* LSELibraryCell.h */,
+				7088EC9818D55A3B00F5E01C /* LSELibraryCell.m */,
+				7035C3E618D95DCD00BB9C32 /* LSEEditableTableViewCell.h */,
+				7035C3E718D95DCD00BB9C32 /* LSEEditableTableViewCell.m */,
 			);
 			name = "Library View";
 			sourceTree = "<group>";
@@ -184,10 +189,10 @@
 			children = (
 				700E4D5518CE36FA00F06518 /* LSEListViewController.h */,
 				700E4D5618CE36FA00F06518 /* LSEListViewController.m */,
-				700E4D6018CE44F800F06518 /* LSEListViewCellView.h */,
-				700E4D6118CE44F800F06518 /* LSEListViewCellView.m */,
 				700E4D6318CE455B00F06518 /* LSEList.h */,
 				700E4D6418CE455B00F06518 /* LSEList.m */,
+				7088EC9A18D55A5600F5E01C /* LSEListCell.h */,
+				7088EC9B18D55A5600F5E01C /* LSEListCell.m */,
 			);
 			name = "List View";
 			sourceTree = "<group>";
@@ -248,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LSE;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "LangSmith Enterprises Worldwide";
 				TargetAttributes = {
 					700E4D3918CE2C5E00F06518 = {
@@ -303,11 +308,12 @@
 				700E4D5E18CE41B200F06518 /* LSEItemViewController.m in Sources */,
 				700E4D2F18CE2C5E00F06518 /* main.m in Sources */,
 				700E4D5718CE36FA00F06518 /* LSEListViewController.m in Sources */,
+				7035C3E818D95DCD00BB9C32 /* LSEEditableTableViewCell.m in Sources */,
+				7088EC9918D55A3B00F5E01C /* LSELibraryCell.m in Sources */,
 				700E4D3318CE2C5E00F06518 /* LSEAppDelegate.m in Sources */,
 				700E4D6518CE455B00F06518 /* LSEList.m in Sources */,
-				700E4D5B18CE3CAB00F06518 /* LSELibraryCellView.m in Sources */,
 				700E4D5318CE2D3B00F06518 /* LSELibraryViewController.m in Sources */,
-				700E4D6218CE44F800F06518 /* LSEListViewCellView.m in Sources */,
+				7088EC9C18D55A5600F5E01C /* LSEListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +359,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -392,7 +397,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -450,7 +454,6 @@
 		700E4D4F18CE2C5E00F06518 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Listerino.app/Listerino";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -473,7 +476,6 @@
 		700E4D5018CE2C5E00F06518 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Listerino.app/Listerino";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -508,6 +510,7 @@
 				700E4D4D18CE2C5E00F06518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		700E4D4E18CE2C5E00F06518 /* Build configuration list for PBXNativeTarget "ListerinoTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +519,7 @@
 				700E4D5018CE2C5E00F06518 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,5 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface LSEList : NSObject
+@property (nonatomic, copy) NSString *listName;
+@property (nonatomic, strong) NSMutableArray *listItems;
+@property (nonatomic, strong) NSMutableArray *listContributors;
+@property (nonatomic, strong) id listColor;
+@property (nonatomic, assign) BOOL isEditing;
+
++ (NSArray *)fakeLists;
 
 @end

@@ -10,4 +10,11 @@
 
 @interface LSEItem : NSObject
 
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, strong) UIImage *photo;
+@property (nonatomic, copy) NSString *itemLocation;
+@property (nonatomic, copy) NSString *itemNotes;
+
++ (NSMutableArray *)itemArray:(NSMutableArray *)array;
+
 @end

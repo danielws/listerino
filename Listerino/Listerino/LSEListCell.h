@@ -1,13 +1,13 @@
 //
-//  LSEListViewCellView.h
+//  LSEListCell.h
 //  Listerino
 //
-//  Created by Daniel Warner Smith on 3/10/14.
+//  Created by Daniel Warner Smith on 3/15/14.
 //  Copyright (c) 2014 LangSmith Enterprises Worldwide. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface LSEListViewCellView : UIView
+@interface LSEListCell : UITableViewCell
 
 @end
