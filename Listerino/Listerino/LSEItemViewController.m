@@ -16,7 +16,8 @@
 @property (nonatomic, strong) UIImageView *chevronIconView;
 @property (nonatomic,strong) UITextView *locationText;
 @property (nonatomic, strong) UIView *noteView;
-@property (nonatomic,strong) UITextView *noteText;
+@property (nonatomic,strong) UILabel *noteText;
+@property (nonatomic,strong) UIScrollView *noteScrollView;
 
 @end
 
@@ -40,14 +41,19 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     // Inits -------------------------------------------------------
+    
+    //Note scroll view
+    self.noteScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview: self.noteScrollView];
+    
     // Note Image
     UIImage *Image = [UIImage imageNamed:self.itemInfo.photo];
     self.imageView = [[UIImageView alloc] initWithImage:Image];
-    [self.view addSubview:self.imageView];
+    [self.noteScrollView addSubview:self.imageView];
     
     // Location Label
     self.locationView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.view addSubview:self.locationView];
+    [self.noteScrollView addSubview:self.locationView];
     
     // Location Icon
     UIImage *locationIcon = [UIImage imageNamed:@"location.png"];
@@ -68,10 +74,12 @@
     // Note Text
     self.noteView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.noteView addSubview:self.noteText];
-    [self.view addSubview:self.noteView];
+    [self.noteScrollView addSubview:self.noteView];
     
-    self.noteText = [[UITextView alloc] initWithFrame:CGRectZero];
+    self.noteText = [[UILabel alloc] initWithFrame:CGRectZero];
     self.noteText.text = self.itemInfo.itemNotes;
+    _noteText.numberOfLines = 0;
+    [_noteText sizeToFit];
     [self.noteView addSubview:self.noteText];
     
 }
@@ -88,38 +96,40 @@
     [super viewDidLayoutSubviews];
     
     // Image view layout
-    _imageView.frame = CGRectMake(0, 62, 320, 240);
+    _imageView.frame = CGRectMake(0, 0, 320, 240);
     _imageView.backgroundColor = [UIColor greenColor];
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     // Location view layout
     _locationView.frame = CGRectMake(0, CGRectGetMaxY(_imageView.frame), 320, 50);
-//    _locationView.backgroundColor = [UIColor redColor];
+    _locationView.backgroundColor = [UIColor redColor];
     
-    _locationIconView.frame = CGRectMake(8-13, 8, _locationView.frame.size.height - 14, _locationView.frame.size.height-16);
+    _locationIconView.frame = CGRectMake(8-8, 8, _locationView.frame.size.height - 14, _locationView.frame.size.height-16);
     _locationIconView.contentMode = UIViewContentModeCenter;
 //    _locationIconView.backgroundColor = [UIColor grayColor];
     
-    _chevronIconView.frame = CGRectMake(CGRectGetWidth(_locationView.frame) - CGRectGetWidth(_locationIconView.frame)-8+17, 8, CGRectGetHeight(_locationIconView.frame), CGRectGetWidth(_locationIconView.frame));
+    _chevronIconView.frame = CGRectMake(CGRectGetWidth(_locationView.frame) - CGRectGetWidth(_locationIconView.frame)-8+7, 8, CGRectGetHeight(_locationIconView.frame), CGRectGetWidth(_locationIconView.frame));
     _chevronIconView.contentMode = UIViewContentModeCenter;
     
     _locationText.frame = CGRectMake(16 + (_locationView.frame.size.height - 16 - 13), 10, CGRectGetWidth(_locationView.frame) - 24 - (_locationIconView.frame.size.width)*2-8 +46, CGRectGetHeight(_locationView.frame)- 16);
-//    _locationText.backgroundColor = [UIColor whiteColor];
+    _locationText.backgroundColor = [UIColor clearColor];
     _locationText.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    _locationText.textColor = [UIColor colorWithRed:0.5725490196 green:0.5725490196 blue:0.5725490196 alpha:1];
+    _locationText.textColor = [UIColor whiteColor];
 
-    // Note view layout
-    _noteView.frame = CGRectMake(0, CGRectGetMaxY(_locationView.frame), 320, 500);
-//    _noteView.backgroundColor = [UIColor yellowColor];
-    
-    _noteText.frame = CGRectMake(5, 5, CGRectGetWidth(_noteView.frame) - 10, 100);
-//    _noteText.backgroundColor = [UIColor brownColor];
+    float originalNoteHeight = _noteText.frame.size.height;
+    _noteText.frame = CGRectMake(10, 10, 320 - 20, 300);
+    _noteText.backgroundColor = [UIColor brownColor];
     _noteText.textColor = [UIColor blackColor];
-    _noteText.font = [UIFont fontWithName:@"HelveticaNeue" size:18];
-
+    _noteText.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     
+    // Note view layout
+    _noteView.frame = CGRectMake(0, CGRectGetMaxY(_locationView.frame), 320, CGRectGetHeight(_noteText.frame)+20);
+    _noteView.backgroundColor = [UIColor yellowColor];
 
-
+    // Note scroll view Layout
+    _noteScrollView.frame = CGRectMake(0, 0, 320, (CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_locationView.frame)+CGRectGetHeight(_noteView.frame)));
+    _noteScrollView.clipsToBounds = NO;
+    _noteScrollView.contentSize=CGSizeMake(320,(CGRectGetHeight(_imageView.frame)+CGRectGetHeight(_locationView.frame)+CGRectGetHeight(_noteView.frame)));
 
 }
 
