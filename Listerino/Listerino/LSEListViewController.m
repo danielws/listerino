@@ -31,6 +31,13 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    // set navigation bar's tint color when being shown
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

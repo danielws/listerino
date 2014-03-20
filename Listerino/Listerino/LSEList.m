@@ -77,13 +77,13 @@
                   },
                 
                 @{@"name" : @"Arbys",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Who knows",
                   @"notes" : @"Roast beef sandwich"
                   },
                 
                 @{@"name" : @"Taco Bell",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Geary st",
                   @"notes" : @"Dorito taco is a good deal"
                   }
@@ -94,19 +94,19 @@
       @{@"name" : @"Cool spots",
         @"items" : @[
                 @{@"name" : @"Corona Heights",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Above Beuna Vista Park",
                   @"notes" : @"Check it out at sunrise"
                   },
                 
                 @{@"name" : @"De Young Observation Tower",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Golden Gate Park",
                   @"notes" : @"Pretty cool view"
                   },
                 
                 @{@"name" : @"Ocean Beach",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Ocean Beach",
                   @"notes" : @"The water is cold and it's really windy"
                   }
@@ -117,13 +117,13 @@
       @{@"name" : @"Books",
         @"items" : @[
                 @{@"name" : @"Crime and Punishment",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Russia",
                   @"notes" : @"Russian books are depressing"
                   },
                 
                 @{@"name" : @"Objective C for dummies",
-                  @"photo" : [[UIImage alloc] init],
+                  @"photo" : @"",
                   @"location" : @"Barnes and Noble",
                   @"notes" : @"What's an objective c?"
                   }
