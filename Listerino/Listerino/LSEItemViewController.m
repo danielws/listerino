@@ -40,7 +40,7 @@
     [super viewWillAppear:YES];
     // set navigation bar's tint color when being shown
     self.navigationController.navigationBar.barTintColor = _noteColor;
-    self.navigationController.navigationBar.barTintColor = _noteColor;
+
 }
 
 - (void)viewDidLoad

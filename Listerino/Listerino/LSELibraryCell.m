@@ -35,8 +35,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     _listNameLabel.frame = CGRectMake(5, 5, 100, 40);
-    _listNameLabel.backgroundColor = [UIColor redColor];
+    _listNameLabel.textColor = [UIColor redColor];
+    _listNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     self.backgroundColor = [UIColor greenColor];
+//    self.frame = CGRectMake(0, 0, 320, 150);
 }
 
 @end
