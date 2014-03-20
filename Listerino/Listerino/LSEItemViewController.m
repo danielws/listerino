@@ -7,7 +7,8 @@
 //
 
 #import "LSEItemViewController.h"
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >>
+#import "LSEButtonViewController.h"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000)
 
 @interface LSEItemViewController ()
 
@@ -40,8 +41,11 @@
     [super viewWillAppear:YES];
     // set navigation bar's tint color when being shown
     self.navigationController.navigationBar.barTintColor = _noteColor;
-
+    
+    LSEButtonViewController *buttonViewController = [LSEButtonViewController sharedInstance];
+    [buttonViewController changeButtonTypeForViewController:self];
 }
+
 
 - (void)viewDidLoad
 {

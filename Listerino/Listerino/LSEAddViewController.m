@@ -190,7 +190,7 @@
     NSLog(@"Button Down");
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
         self.doneButton.frame = CGRectMake(self.doneButton.frame.origin.x+10, self.doneButton.frame.origin.y+10
-                                          , self.doneButton.frame.size.width-20, self.doneButton.frame.size.height-20);
+                                        , self.doneButton.frame.size.width-20, self.doneButton.frame.size.height-20);
     } completion:^(BOOL finished) {
         //
     }];

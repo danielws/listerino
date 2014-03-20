@@ -6,11 +6,13 @@
 //  Copyright (c) 2014 LangSmith Enterprises Worldwide. All rights reserved.
 //
 
+#import "LSEAppDelegate.h"
 #import "LSELibraryViewController.h"
 #import "LSEListViewController.h"
 #import "LSELibraryCell.h"
 #import "LSEList.h"
 #import "LSEEditableTableViewCell.h"
+#import "LSEButtonViewController.h"
 
 @interface LSELibraryViewController ()
 @property (nonatomic, strong) UITableView *libraryTableView;
@@ -36,6 +38,9 @@
     [super viewWillAppear:YES];
     // set navigation bar's tint color when being shown
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    LSEButtonViewController *buttonViewController = [LSEButtonViewController sharedInstance];
+    [buttonViewController changeButtonTypeForViewController:self];
 }
 
 - (void)viewDidLoad
@@ -60,6 +65,7 @@
 	self.view.backgroundColor = [UIColor greenColor];
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -118,7 +124,7 @@
         LSELibraryCell *libraryCell = (LSELibraryCell *)cell;
         libraryCell.textLabel.text = listName;
     } else if ([identifier isEqualToString:editableIdentifier]) {
-        LSEEditableTableViewCell *editableCell = (LSEEditableTableViewCell *)cell;
+//        LSEEditableTableViewCell *editableCell = (LSEEditableTableViewCell *)cell;
         // tell the label to become first responder
     }
     
@@ -149,6 +155,14 @@
 //  NSIndexPath *idxPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //  [self.libraryTableView reloadRowsAtIndexPaths:@[idxPath] withRowAnimation:UITableViewRowAnimationNone];
 
+}
+
+- (void)editableCell
+{
+    LSEList *list = [[LSEList alloc] init];
+    list.isEditing = YES;
+    [self.lists insertObject:list atIndex:0];
+    [self.libraryTableView reloadData];
 }
 
 //- (void)onConfirmButtonTap:(id)sender {

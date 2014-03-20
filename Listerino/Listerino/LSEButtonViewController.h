@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LSEButtonViewController : UIViewController
-
+- (void)changeButtonTypeForViewController:(UIViewController *)viewController;
+// Singleton accessor. Returns the one instance of the class
++ (LSEButtonViewController *)sharedInstance;
 @end

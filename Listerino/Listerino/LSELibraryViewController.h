@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LSELibraryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+- (void)onAddButtonTap:(id)sender;
+- (void)editableCell;
 
 @end

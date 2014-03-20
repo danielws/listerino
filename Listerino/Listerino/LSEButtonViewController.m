@@ -11,14 +11,31 @@
 // Import The "real" root
 #import "LSELibraryViewController.h"
 #import "LSEAddViewController.h"
+#import "LSEListViewController.h"
+#import "LSEItemViewController.h"
+
 
 @interface LSEButtonViewController ()
-@property (nonatomic, strong) UIButton *addButton;
+@property (nonatomic, strong) UIButton *addListButton;
+@property (nonatomic, strong) UIButton *addItemButton;
 
+@property (nonatomic,strong) UINavigationController *nav;
+@property (nonatomic,strong) UIViewController *currentViewController;
+@property (nonatomic,strong) LSELibraryViewController *libraryViewController;
 
 @end
 
 @implementation LSEButtonViewController
+
+static LSEButtonViewController *sSharedInstance = nil;
+
++ (LSEButtonViewController *)sharedInstance
+{
+    if (!sSharedInstance) {
+        sSharedInstance = [[LSEButtonViewController alloc]init];
+    }
+    return sSharedInstance;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,16 +50,23 @@
 {
     [super viewDidLoad];
     
-    self.addButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80)];
-    UIImage *addButtonImage = [UIImage imageNamed:@"addButton.png"];
-    [self.addButton setBackgroundImage:addButtonImage forState:UIControlStateNormal];
-    [self.addButton addTarget:self action:@selector(onAddButtonDown:) forControlEvents:UIControlEventTouchDown];
-    [self.addButton addTarget:self action:@selector(onAddButtonUp:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:self.addButton];
+    self.addListButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80)];
+    UIImage *addListButtonImage = [UIImage imageNamed:@"addButton.png"];
+    [self.addListButton setBackgroundImage:addListButtonImage forState:UIControlStateNormal];
+    [self.addListButton addTarget:self action:@selector(onAddListButtonDown:) forControlEvents:UIControlEventTouchDown];
+    [self.addListButton addTarget:self action:@selector(onAddListButtonUp:) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    self.addItemButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80)];
+    UIImage *addItemButtonImage = [UIImage imageNamed:@"addButton.png"];
+    [self.addItemButton setBackgroundImage:addItemButtonImage forState:UIControlStateNormal];
+    [self.addItemButton addTarget:self action:@selector(onAddItemButtonDown:) forControlEvents:UIControlEventTouchDown];
+    [self.addItemButton addTarget:self action:@selector(onAddItemButtonUp:) forControlEvents:UIControlEventTouchUpInside];
     
     [self setupRootViewController];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,35 +79,53 @@
 - (void)setupRootViewController
 {
     // Instantiate what will become the new root
-    LSEButtonViewController *root = [[LSELibraryViewController alloc] init];
+    LSELibraryViewController *root = [[LSELibraryViewController alloc] init];
+    self.libraryViewController = root;
     
     // Create the Navigation Controller
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:root];
+    self.nav = [[UINavigationController alloc] initWithRootViewController:root];
     
     // Add its view beneath all ours (including the button we made)
-    [self addChildViewController:nav];
-    [self.view insertSubview:nav.view atIndex:0];
-    [nav didMoveToParentViewController:self];
+    [self addChildViewController:self.nav];
+    [self.view insertSubview:self.nav.view atIndex:0];
+    [self.nav didMoveToParentViewController:self];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)changeButtonTypeForViewController:(UIViewController *)viewController
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+    if ([viewController isKindOfClass:[LSELibraryViewController class]])
+    {
+        NSLog(@"library view");
+        [self.addItemButton removeFromSuperview];
+        self.currentViewController = viewController;
+        [self.view addSubview:self.addListButton];
 
-- (void)onAddButtonUp:(id)sender {
+    }
+    
+    else if ([viewController isKindOfClass:[LSEListViewController class]])
+    {
+        NSLog(@"list view");
+        [self.addListButton removeFromSuperview];
+        [self.view addSubview:self.addItemButton];
+        self.currentViewController = viewController;
+         }
+    
+    else if ([viewController isKindOfClass:[LSEItemViewController class]])
+    {
+        NSLog(@"item view");
+        [self.addItemButton removeFromSuperview];
+        self.currentViewController = viewController;
+    }
+}
+
+- (void)onAddItemButtonUp:(id)sender {
+    
     NSLog(@"Button Up");
+    
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.addButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
+        self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
         UIViewController *vc = [[LSEAddViewController alloc] init];
         vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical; // Rises from below
-        
         // vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve; // Fade
         // vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal; // Flip
         // vc.modalTransitionStyle = UIModalTransitionStylePartialCurl; // Curl
@@ -94,14 +136,39 @@
     }];
 }
 
-- (void)onAddButtonDown:(id)sender {
-    NSLog(@"Button Down");
+- (void)onAddListButtonUp:(id)sender {
+    
+    NSLog(@"Button Up");
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.addButton.frame = CGRectMake(self.addButton.frame.origin.x+10, self.addButton.frame.origin.y+10
-                                          , self.addButton.frame.size.width-20, self.addButton.frame.size.height-20);
+        self.addListButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
+        
+        [self.libraryViewController editableCell];
+    } completion:^(BOOL finished) {
+        //
+    }];
+    
+    
+}
+
+- (void)onAddItemButtonDown:(id)sender {
+    
+    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.addItemButton.frame = CGRectMake(self.addItemButton.frame.origin.x+10, self.addItemButton.frame.origin.y+10
+                                              , self.addItemButton.frame.size.width-20, self.addItemButton.frame.size.height-20);
+    } completion:^(BOOL finished) {
+        //
+    }];
+}
+
+- (void)onAddListButtonDown:(id)sender {
+
+    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.addListButton.frame = CGRectMake(self.addListButton.frame.origin.x+10, self.addListButton.frame.origin.y+10
+                                          , self.addListButton.frame.size.width-20, self.addListButton.frame.size.height-20);
     } completion:^(BOOL finished) {
        //
     }];
 }
+
 
 @end

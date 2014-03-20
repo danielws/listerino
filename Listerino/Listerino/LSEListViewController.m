@@ -11,6 +11,7 @@
 #import "LSEListCell.h"
 #import "LSEItemViewController.h"
 #import "LSEItem.h"
+#import "LSEButtonViewController.h"
 
 @interface LSEListViewController ()
 @property (nonatomic, strong) UITableView *listTableView;
@@ -36,6 +37,9 @@
     [super viewWillAppear:YES];
     // set navigation bar's tint color when being shown
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    LSEButtonViewController *buttonViewController = [LSEButtonViewController sharedInstance];
+    [buttonViewController changeButtonTypeForViewController:self];
 }
 
 - (void)viewDidLoad
