@@ -92,7 +92,7 @@
     [self.noteScrollView addSubview:self.noteView];
     
     self.noteText = [[UITextView alloc] initWithFrame:CGRectZero];
-    self.noteText.text = @"Note";
+    self.noteText.text = @"Add a note...";
     [self.noteView addSubview:self.noteText];
 
     
@@ -136,13 +136,13 @@
     [_cameraButton setTitle:@"Take Photo" forState:UIControlStateNormal];
     _cameraButton.frame = CGRectMake(0, 0, 320, CGRectGetHeight(_imageView.frame)/2);
     _cameraButton.backgroundColor = [UIColor colorWithWhite:1 alpha:.4];
-    [_cameraButton addTarget:self action:@selector(onCameraButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_cameraButton addTarget:self action:@selector(onCameraButtonUp:) forControlEvents:UIControlEventTouchUpInside];
     
     //Camera Roll Layout
     [_cameraRollButton setTitle:@"Choose Photo" forState:UIControlStateNormal];
     _cameraRollButton.frame = CGRectMake(0, CGRectGetMaxY(_cameraButton.frame), 320, CGRectGetHeight(_cameraButton.frame));
     _cameraRollButton.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
-    [_cameraRollButton addTarget:self action:@selector(onCameraRollButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_cameraRollButton addTarget:self action:@selector(onCameraRollButtonUp:) forControlEvents:UIControlEventTouchUpInside];
     
     // Location view layout
     _locationView.frame = CGRectMake(0, CGRectGetMaxY(_imageView.frame), 320, 50);
@@ -162,7 +162,7 @@
     
     _noteText.frame = CGRectMake(10, 10, 320 - 20, 300);
     _noteText.backgroundColor = _noteColor;
-    _noteText.textColor = [UIColor whiteColor];
+    _noteText.textColor = [UIColor colorWithWhite:1 alpha:.6];
     _noteText.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     
     // Note view layout
@@ -196,11 +196,11 @@
     }];
 }
 
-- (void)onCameraButton:(id)sender {
+- (void)onCameraButtonUp:(id)sender {
     NSLog(@"Take photo!");
 }
 
-- (void)onCameraRollButton:(id)sender {
+- (void)onCameraRollButtonUp:(id)sender {
     NSLog(@"Choose photo!");
 }
 
