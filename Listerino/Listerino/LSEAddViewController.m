@@ -10,7 +10,7 @@
 
 @interface LSEAddViewController ()
 @property (nonatomic, strong) UIButton *doneButton;
-@property (nonatomic,strong) UIImageView *imageView;
+@property (nonatomic,strong) UIView *imageView;
 @property (nonatomic,strong) UIButton *cameraButton;
 @property (nonatomic,strong) UIButton *cameraRollButton;
 @property (nonatomic,strong) UIView *locationView;
@@ -55,16 +55,16 @@
     [self.view addSubview: self.noteScrollView];
     
     // Note Image
-    self.imageView = [[UIImageView alloc] initWithImage:nil];
+    self.imageView = [[UIView alloc] init];
     [self.noteScrollView addSubview:self.imageView];
     
     //Camera Button
     self.cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview: self.cameraButton];
+    [self.imageView addSubview: self.cameraButton];
 
     //Camera Button
     self.cameraRollButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview: self.cameraRollButton];
+    [self.imageView addSubview: self.cameraRollButton];
     
     // Location Label
     self.locationView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -129,22 +129,24 @@
     
     // Image view layout
     _imageView.frame = CGRectMake(0, 0, 320, 240);
-    _imageView.backgroundColor = _noteColor;
+    _imageView.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     //Camera Button Layout
     [_cameraButton setTitle:@"Take Photo" forState:UIControlStateNormal];
-    _cameraButton.frame = CGRectMake(0, 0, 320, 100);
+    _cameraButton.frame = CGRectMake(0, 0, 320, CGRectGetHeight(_imageView.frame)/2);
+    _cameraButton.backgroundColor = [UIColor colorWithWhite:1 alpha:.4];
     [_cameraButton addTarget:self action:@selector(onCameraButton:) forControlEvents:UIControlEventTouchUpInside];
     
     //Camera Roll Layout
     [_cameraRollButton setTitle:@"Choose Photo" forState:UIControlStateNormal];
-    _cameraRollButton.frame = CGRectMake(0, 100, 320, 100);
+    _cameraRollButton.frame = CGRectMake(0, CGRectGetMaxY(_cameraButton.frame), 320, CGRectGetHeight(_cameraButton.frame));
+    _cameraRollButton.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     [_cameraRollButton addTarget:self action:@selector(onCameraRollButton:) forControlEvents:UIControlEventTouchUpInside];
     
     // Location view layout
     _locationView.frame = CGRectMake(0, CGRectGetMaxY(_imageView.frame), 320, 50);
-    _locationView.backgroundColor = [UIColor colorWithWhite:1 alpha:.1];
+    _locationView.backgroundColor = [UIColor colorWithWhite:1 alpha:.2];
     
     _locationIconView.frame = CGRectMake(8-8, 8, _locationView.frame.size.height - 14, _locationView.frame.size.height-16);
     _locationIconView.contentMode = UIViewContentModeCenter;
