@@ -19,14 +19,13 @@
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:libraryViewController];
 //    [self.window setRootViewController:navigationController];
 
-    LSEButtonViewController *fakeRoot = [[LSEButtonViewController alloc] init];
+    LSEButtonViewController *fakeRoot = [LSEButtonViewController sharedInstance];
     
     self.window.rootViewController = fakeRoot;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
-    
 
     
 }
