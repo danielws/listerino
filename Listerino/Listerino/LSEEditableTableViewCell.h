@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LSEEditableTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) UITextField *listNameTextField;
 @end

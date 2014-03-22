@@ -17,8 +17,10 @@
 @interface LSELibraryViewController ()
 @property (nonatomic, strong) UITableView *libraryTableView;
 @property (nonatomic, strong) NSMutableArray *lists;
+@property (nonatomic, strong) LSEEditableTableViewCell *editableLibraryCell;
 
 - (void)onAddButtonTap:(id)sender;
+//- (void)onConfirmButtonTap:(id)sender;
 
 @end
 
@@ -112,9 +114,10 @@
                                                                 reuseIdentifier:identifier];
             cell = libraryCell;
         } else if ([identifier isEqualToString:editableIdentifier]) {
-            LSEEditableTableViewCell *editableCell = [[LSEEditableTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+            _editableLibraryCell = [[LSEEditableTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                                                      reuseIdentifier:identifier];
-            cell = editableCell;
+            _editableLibraryCell.listNameTextField.delegate = self;
+            cell = self.editableLibraryCell;
         }
     }
     
@@ -148,28 +151,45 @@
 }
 
 - (void)onAddButtonTap:(id)sender {
+
     LSEList *list = [[LSEList alloc] init];
     list.isEditing = YES;
-    [self.lists insertObject:list atIndex:0];
-    [self.libraryTableView reloadData];
-//  NSIndexPath *idxPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//  [self.libraryTableView reloadRowsAtIndexPaths:@[idxPath] withRowAnimation:UITableViewRowAnimationNone];
 
+    [_lists insertObject:list atIndex:0];
+    [_libraryTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-- (void)editableCell
-{
+
+- (void)editableCell {
     LSEList *list = [[LSEList alloc] init];
     list.isEditing = YES;
-    [self.lists insertObject:list atIndex:0];
-    [self.libraryTableView reloadData];
+    [_lists insertObject:list atIndex:0];
+    [_libraryTableView reloadData];
 }
 
-//- (void)onConfirmButtonTap:(id)sender {
-//    LSEList *newList = [[LSEList alloc]init];
-//    newList.listName = @"NewList";
-//    [self.lists insertObject:newList atIndex:0];
-//    [self.libraryTableView reloadData];
-//}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+
+    LSEList *list = [_lists firstObject];
+    
+    if (!list) {
+        return YES;
+    }
+    
+    if (textField.text.length == 0) {
+        list.isEditing = NO;
+        [_lists removeObjectAtIndex:0];
+        [_libraryTableView reloadData];
+        return YES;
+    }
+    
+    list.isEditing = NO;
+    list.listName = textField.text;
+    
+    [_libraryTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    
+    return YES;
+}
 
 @end

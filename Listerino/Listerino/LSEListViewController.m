@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UITableView *listTableView;
 @property (nonatomic, strong) NSMutableArray *items;
 
-- (void)onAddButtonTap:(id)sender;
+//- (void)onAddButtonTap:(id)sender;
 
 @end
 
@@ -57,9 +57,9 @@
 
 	self.view.backgroundColor = [UIColor yellowColor];
     
-    UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 60) / 2, CGRectGetMaxY(self.view.frame) - 60, 50, 50)];
-    addButton.backgroundColor = [UIColor redColor];
-    [addButton addTarget:self action:@selector(onAddButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 60) / 2, CGRectGetMaxY(self.view.frame) - 60, 50, 50)];
+//    addButton.backgroundColor = [UIColor redColor];
+//    [addButton addTarget:self action:@selector(onAddButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     
 //    [self.view addSubview:addButton];
     

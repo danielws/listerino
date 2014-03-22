@@ -7,9 +7,9 @@
 //
 
 #import "LSEEditableTableViewCell.h"
+#import "LSELibraryViewController.h"
 
 @interface LSEEditableTableViewCell()
-@property (nonatomic, strong) UITextField *listNameTextField;
 @end
 
 @implementation LSEEditableTableViewCell
@@ -18,9 +18,12 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        UITextField *listNameTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-        self.listNameTextField = listNameTextField;
-        [self.contentView addSubview:listNameTextField];
+        _listNameTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+        [_listNameTextField setReturnKeyType:UIReturnKeyDone];
+        _listNameTextField.clearsOnBeginEditing = YES;
+        _listNameTextField.placeholder = @"New List...";
+        [self.contentView addSubview:_listNameTextField];
+
     }
     return self;
 }
@@ -38,9 +41,27 @@
 - (void)layoutSubviews
 {
 [super layoutSubviews];
+[_listNameTextField becomeFirstResponder];
+
 self.listNameTextField.frame = CGRectMake(5, 5, 300, 40);
 self.listNameTextField.backgroundColor = [UIColor redColor];
 self.backgroundColor = [UIColor whiteColor];
+
 }
+
+//- (void)textViewDidEndEditing:(UITextView *)textView {
+//    [self.listNameTextField resignFirstResponder];
+//    NSString *newListName = self.listNameTextField.text;
+//}
+
+//- (bool)textFieldShouldReturn:(UITextField *)textField {
+//    
+//    [textField resignFirstResponder];
+//    NSLog(@"done editing");
+//    self.textFieldString = textField.text;
+////    [LSELibraryViewController addl]
+//
+//    return YES;
+//}
 
 @end
