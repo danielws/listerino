@@ -53,6 +53,7 @@
     self.libraryTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.libraryTableView.dataSource = self;
     self.libraryTableView.delegate = self;
+    self.libraryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.lists = [[LSEList fakeLists] mutableCopy];
     
     UIButton *addListButton = [[UIButton alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 60) / 2, CGRectGetMaxY(self.view.frame) - 60, 50, 50)];
@@ -126,14 +127,21 @@
         NSString *listName = list.listName;
         LSELibraryCell *libraryCell = (LSELibraryCell *)cell;
         libraryCell.textLabel.text = listName;
+        
+        //style cells?
+        libraryCell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:38];
+        libraryCell.textLabel.textColor = [UIColor whiteColor];
+        libraryCell.textLabel.textAlignment = NSTextAlignmentCenter;
+        libraryCell.backgroundColor = [UIColor blueColor];
+        
     } else if ([identifier isEqualToString:editableIdentifier]) {
 //        LSEEditableTableViewCell *editableCell = (LSEEditableTableViewCell *)cell;
         // tell the label to become first responder
     }
     
+    
     return cell;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

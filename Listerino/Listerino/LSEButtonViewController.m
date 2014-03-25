@@ -109,6 +109,7 @@ static LSEButtonViewController *sSharedInstance = nil;
         [self.view addSubview:self.addItemButton];
         [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 , 80, 80);
+//            self.addItemButton.transform = CGAffineTransformMakeRotation(M_PI_4*0);
         } completion:^(BOOL finished) {
             //
         }];
@@ -120,6 +121,7 @@ static LSEButtonViewController *sSharedInstance = nil;
         NSLog(@"item view");
         [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 + 200, 80, 80);
+//            self.addItemButton.transform = CGAffineTransformMakeRotation(M_PI_4*3);
         } completion:^(BOOL finished) {
             [self.addItemButton removeFromSuperview];
             self.currentViewController = viewController;
