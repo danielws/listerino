@@ -107,14 +107,23 @@ static LSEButtonViewController *sSharedInstance = nil;
         NSLog(@"list view");
         [self.addListButton removeFromSuperview];
         [self.view addSubview:self.addItemButton];
+        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 , 80, 80);
+        } completion:^(BOOL finished) {
+            //
+        }];
         self.currentViewController = viewController;
          }
     
     else if ([viewController isKindOfClass:[LSEItemViewController class]])
     {
         NSLog(@"item view");
-        [self.addItemButton removeFromSuperview];
-        self.currentViewController = viewController;
+        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 + 200, 80, 80);
+        } completion:^(BOOL finished) {
+            [self.addItemButton removeFromSuperview];
+            self.currentViewController = viewController;
+        }];
     }
 }
 
