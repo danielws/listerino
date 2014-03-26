@@ -107,9 +107,8 @@ static LSEButtonViewController *sSharedInstance = nil;
         NSLog(@"list view");
         [self.addListButton removeFromSuperview];
         [self.view addSubview:self.addItemButton];
-        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 , 80, 80);
-//            self.addItemButton.transform = CGAffineTransformMakeRotation(M_PI_4*0);
+        [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.addItemButton.transform = CGAffineTransformMakeTranslation(0, 0);
         } completion:^(BOOL finished) {
             //
         }];
@@ -119,9 +118,11 @@ static LSEButtonViewController *sSharedInstance = nil;
     else if ([viewController isKindOfClass:[LSEItemViewController class]])
     {
         NSLog(@"item view");
-        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 + 200, 80, 80);
+        [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100 + 200, 80, 80);
 //            self.addItemButton.transform = CGAffineTransformMakeRotation(M_PI_4*3);
+            self.addItemButton.transform = CGAffineTransformMakeTranslation(0, 100);
+
         } completion:^(BOOL finished) {
             [self.addItemButton removeFromSuperview];
             self.currentViewController = viewController;
@@ -134,7 +135,9 @@ static LSEButtonViewController *sSharedInstance = nil;
     NSLog(@"Button Up");
     
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.addItemButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
+
+        self.addItemButton.transform = CGAffineTransformMakeScale(1, 1);
+        
         UIViewController *vc = [[LSEAddViewController alloc] init];
         vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical; // Rises from below
         // vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve; // Fade
@@ -151,7 +154,7 @@ static LSEButtonViewController *sSharedInstance = nil;
     
     NSLog(@"Button Up");
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.addListButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
+        self.addListButton.transform = CGAffineTransformMakeScale(1, 1);
         
         [self.libraryViewController editableCell];
     } completion:^(BOOL finished) {
@@ -164,8 +167,9 @@ static LSEButtonViewController *sSharedInstance = nil;
 - (void)onAddItemButtonDown:(id)sender {
     
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.addItemButton.frame = CGRectMake(self.addItemButton.frame.origin.x+10, self.addItemButton.frame.origin.y+10
-                                              , self.addItemButton.frame.size.width-20, self.addItemButton.frame.size.height-20);
+
+        self.addItemButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+
     } completion:^(BOOL finished) {
         //
     }];
@@ -174,8 +178,9 @@ static LSEButtonViewController *sSharedInstance = nil;
 - (void)onAddListButtonDown:(id)sender {
 
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.addListButton.frame = CGRectMake(self.addListButton.frame.origin.x+10, self.addListButton.frame.origin.y+10
-                                          , self.addListButton.frame.size.width-20, self.addListButton.frame.size.height-20);
+
+        self.addListButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+
     } completion:^(BOOL finished) {
        //
     }];

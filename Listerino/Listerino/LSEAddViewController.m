@@ -179,8 +179,10 @@
 - (void)onAddButtonUp:(id)sender {
     NSLog(@"Button Up");
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.doneButton.frame = CGRectMake((self.view.frame.size.width - 80) / 2, CGRectGetMaxY(self.view.frame) - 100, 80, 80);
+        
+        self.doneButton.transform = CGAffineTransformMakeScale(1, 1);
         [self dismissViewControllerAnimated:YES completion:nil];
+    
     } completion:^(BOOL finished) {
         //
     }];
@@ -189,8 +191,9 @@
 - (void)onAddButtonDown:(id)sender {
     NSLog(@"Button Down");
     [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.doneButton.frame = CGRectMake(self.doneButton.frame.origin.x+10, self.doneButton.frame.origin.y+10
-                                        , self.doneButton.frame.size.width-20, self.doneButton.frame.size.height-20);
+        
+        self.doneButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    
     } completion:^(BOOL finished) {
         //
     }];
